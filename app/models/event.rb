@@ -2,7 +2,7 @@ class Event < ApplicationRecord
     belongs_to :venue
     belongs_to :user
     has_many :bookings
-    has_many :event_equipments
+    has_many :event_equipments, dependent: :destroy
     has_many :equipments, through: :event_equipments
 
     def self.ransackable_attributes(auth_object = nil)

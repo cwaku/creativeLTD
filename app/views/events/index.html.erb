@@ -1,27 +1,23 @@
 <div class="container mt-5">
   <h1>Events</h1>
   <%= link_to 'New Event', new_event_path, class: 'btn btn-primary mb-3' %>
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Date</th>
-        <th>Venue</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @events.each do |event| %>
-        <tr>
-          <td><%= link_to event.name, event_path(event), class: 'text-decoration-none' %></td>
-          <td><%= event.date.strftime("%d %B, %Y") %></td>
-          <td><%= event.venue.name %></td>
-          <td>
-            <%= link_to 'Edit', edit_event_path(event), class: 'btn btn-secondary btn-sm' %>
-            <%= link_to 'Delete', event_path(event), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <%= link_to 'My Boookings', bookings_path, class: 'btn btn-primary mb-3' %>
+  <div class="row">
+    <% @events.each do |event| %>
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title"><%= link_to event.name, event_path(event), class: 'text-decoration-none' %></h5>
+            <p class="card-text"><strong>Date:</strong> <%= event.date.strftime("%d %B, %Y") %></p>
+            <p class="card-text"><strong>Venue:</strong> <%= event.venue.name %></p>
+            <div class="d-flex justify-content-between">
+              <%= link_to 'Edit', edit_event_path(event), class: 'btn btn-secondary btn-sm' %>
+              <%= link_to 'Delete', event_path(event), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
+

@@ -1,5 +1,5 @@
 class Equipment < ApplicationRecord
-    has_many :event_equipments
+    has_many :event_equipments, dependent: :destroy
     has_many :events, through: :event_equipments
     has_and_belongs_to_many :bookings, join_table: 'bookings_equipments'
 

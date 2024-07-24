@@ -1,18 +1,24 @@
 <div class="container mt-5">
-  <h1>Booking Details</h1>
-  <ul class="list-group">
-    <li class="list-group-item"><strong>Event:</strong> <%= @booking.event.name %></li>
-    <li class="list-group-item"><strong>User:</strong> <%= @booking.user.name %></li>
-    <li class="list-group-item"><strong>Status:</strong> <%= @booking.status %></li>
-    <li class="list-group-item"><strong>Date:</strong> <%= @booking.date.strftime("%d %B, %Y %H:%M") %></li>
-    <li class="list-group-item"><strong>Venue:</strong> <%= @booking.venue.name %></li>
-    <li class="list-group-item"><strong>Equipments:</strong>
-      <ul>
-        <% @booking.equipments.each do |equipment| %>
-          <li><%= equipment.name %></li>
-        <% end %>
+  <div class="card">
+    <div class="card-header">
+      <h1>Booking Details</h1>
+    </div>
+    <div class="card-body">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><strong>Event:</strong> <%= @booking.event.name %></li>
+        <li class="list-group-item"><strong>User:</strong> <%= @booking.user.name %></li>
+        <li class="list-group-item"><strong>Status:</strong> <%= @booking.status %></li>
+        <li class="list-group-item"><strong>Date:</strong> <%= @booking.date.strftime("%d %B, %Y %H:%M") %></li>
+        <li class="list-group-item"><strong>Venue:</strong> <%= @booking.venue.name %></li>
+        <li class="list-group-item"><strong>Equipments:</strong>
+          <ul>
+            <% @booking.equipments.each do |equipment| %>
+              <li><%= equipment.name %></li>
+            <% end %>
+          </ul>
+        </li>
       </ul>
-    </li>
-  </ul>
-  <%= link_to 'Back to Bookings', bookings_path, class: 'btn btn-primary mt-3' %>
+      <%= link_to 'Back to Bookings', bookings_path, class: 'btn btn-primary mt-3' %>
+    </div>
+  </div>
 </div>
