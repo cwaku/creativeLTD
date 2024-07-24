@@ -1,0 +1,30 @@
+<div class="container mt-5">
+  <h1>Venues</h1>
+  <%= link_to 'New Venue', new_venue_path, class: 'btn btn-primary mb-3' %>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Location</th>
+        <th>Capacity</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @venues.each do |venue| %>
+        <tr>
+          <td><%= venue.id %></td>
+          <td><%= venue.name %></td>
+          <td><%= venue.location %></td>
+          <td><%= venue.capacity %></td>
+          <td>
+            <%= link_to 'Show', venue_path(venue), class: 'btn btn-primary btn-sm' %>
+            <%= link_to 'Edit', edit_venue_path(venue), class: 'btn btn-secondary btn-sm' %>
+            <%= link_to 'Delete', venue_path(venue), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

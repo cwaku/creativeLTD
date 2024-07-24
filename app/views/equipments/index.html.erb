@@ -1,0 +1,32 @@
+<div class="container mt-5">
+  <h1>Equipments</h1>
+  <%= link_to 'New Equipment', new_equipment_path, class: 'btn btn-primary mb-3' %>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Availability</th>
+        <th>Cost</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @equipments.each do |equipment| %>
+        <tr>
+          <td><%= equipment.id %></td>
+          <td><%= equipment.name %></td>
+          <td><%= equipment.description %></td>
+          <td><%= equipment.availability ? 'Available' : 'Not Available' %></td>
+          <td><%= number_to_currency(equipment.cost) %></td>
+          <td>
+            <%= link_to 'Show', equipment_path(equipment), class: 'btn btn-primary btn-sm' %>
+            <%= link_to 'Edit', edit_equipment_path(equipment), class: 'btn btn-secondary btn-sm' %>
+            <%= link_to 'Delete', equipment_path(equipment), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

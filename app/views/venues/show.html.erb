@@ -1,0 +1,10 @@
+<div class="container mt-5">
+  <h1>Venue Details</h1>
+  <ul class="list-group">
+    <li class="list-group-item"><strong>ID:</strong> <%= @venue.id %></li>
+    <li class="list-group-item"><strong>Name:</strong> <%= @venue.name %></li>
+    <li class="list-group-item"><strong>Location:</strong> <%= @venue.location %></li>
+    <li class="list-group-item"><strong>Capacity:</strong> <%= @venue.capacity %></li>
+  </ul>
+  <%= link_to 'Back to Venues', venues_path, class: 'btn btn-primary mt-3' %>
+</div>

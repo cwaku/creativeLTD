@@ -1,0 +1,11 @@
+<div class="container mt-5">
+  <h1>Equipment Details</h1>
+  <ul class="list-group">
+    <li class="list-group-item"><strong>ID:</strong> <%= @equipment.id %></li>
+    <li class="list-group-item"><strong>Name:</strong> <%= @equipment.name %></li>
+    <li class="list-group-item"><strong>Description:</strong> <%= @equipment.description %></li>
+    <li class="list-group-item"><strong>Availability:</strong> <%= @equipment.availability ? 'Available' : 'Not Available' %></li>
+    <li class="list-group-item"><strong>Cost:</strong> <%= number_to_currency(@equipment.cost) %></li>
+  </ul>
+  <%= link_to 'Back to Equipments', equipments_path, class: 'btn btn-primary mt-3' %>
+</div>

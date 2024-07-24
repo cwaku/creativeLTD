@@ -1,0 +1,11 @@
+<div class="container mt-5">
+  <h1>Event Details</h1>
+  <ul class="list-group">
+    <li class="list-group-item"><strong>Name:</strong> <%= @event.name %></li>
+    <li class="list-group-item"><strong>Date:</strong> <%= @event.date.strftime("%d %B, %Y") %></li>
+    <li class="list-group-item"><strong>Venue:</strong> <%= @event.venue.name %></li>
+    <li class="list-group-item"><strong>User:</strong> <%= @event.user.name %></li>
+  </ul>
+  <%= link_to 'Book this Event', new_booking_path(event_id: @event.id), class: 'btn btn-primary mt-3' %>
+  <%= link_to 'Back to Events', events_path, class: 'btn btn-secondary mt-3' %>
+</div>
